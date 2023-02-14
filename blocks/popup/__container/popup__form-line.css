@@ -1,0 +1,13 @@
+.popup__form-line {
+    width: 358px;
+    margin: 3px auto 0;
+    height: 1px;
+    background-color: black;
+    opacity: 0.2;
+}
+
+@media screen and (max-width:768px) {
+    .popup__form-line {
+        width: 238px;
+    }
+}

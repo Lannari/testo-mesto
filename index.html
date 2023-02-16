@@ -16,46 +16,58 @@
       <section class="profile">
         <img class="profile__avatar" src="./images/custo.png" alt="Аватар" data-type="auto">
         <div class="profile__info">
-          <p class="profile__info-username">Жак-Ив Кусто</p>
-          <button class="profile__edit"></button>
-          <p class="profile__info-profession">Исследователь океана</p>
+          <h2 class="profile__user">Жак-Ив Кусто</h2>
+          <button class="profile__edit-button" type="button"></button>
+          <p class="profile__job">Исследователь океана</p>
         </div>
-        <button class="profile__addbutton">
+        <button class="profile__add-button" type="button">
     
         </button>
       </section>
 
       <section class="elements">
-        <div class="element">
+        <article class="element">
           <img class="element__image" src="./images/lake-elton.jpg" alt="Озеро Эльтон" title="Озеро Эльтон" data-type="auto">
-          <p class="element__name">Озеро Эльтон</p>
-          <img class="element__like element__like_theme" src="./images/like-disabled.svg" alt="В ожидании лайка" >
-        </div>
-        <div class="element">
+          <div class="element__namegroup">
+            <h3 class="element__name">Озеро Эльтон</h3>
+            <button class="element__like element__like_enabled" type="button"></button>
+          </div>
+        </article>
+        <article class="element">
           <img class="element__image" src="./images/volcano-krenicin.jpg" alt="Вулкан Креницына" title="Вулкан Креницына" data-type="auto">
-          <p class="element__name">Вулкан Креницына</p>
-          <img class="element__like" src="./images/like-disabled.svg" alt="В ожидании лайка" >
-        </div>
-        <div class="element">
+          <div class="element__namegroup">
+            <h3 class="element__name">Вулкан Креницына</h3>
+            <button class="element__like" type="button"></button>
+          </div>
+        </article>
+        <article class="element">
           <img class="element__image" src="./images/manpupuner.jpg" alt="Маньпупунёр" title="Маньпупунёр" data-type="auto">
-          <p class="element__name">Маньпупунёр</p>
-          <img class="element__like" src="./images/like-disabled.svg" alt="В ожидании лайка" >
-        </div>
-        <div class="element">
+          <div class="element__namegroup">
+            <h3 class="element__name">Маньпупунёр</h3>
+            <button class="element__like" type="button"></button>
+          </div>
+        </article>
+        <article class="element">
           <img class="element__image" src="./images/deadсity.jpg" alt="Город Мёртвых" title="город Мёртвых" data-type="auto">
-          <p class="element__name">Город Мёртвых</p>
-          <img class="element__like" src="./images/like-disabled.svg" alt="В ожидании лайка" >
-        </div>
-        <div class="element">
+          <div class="element__namegroup">
+            <h3 class="element__name">Город Мёртвых</h3>
+            <button class="element__like" type="button"></button>
+          </div>
+        </article>
+        <article class="element">
           <img class="element__image" src="./images/glassbay.jpg" alt="Стеклянная бухта" title="Стеклянная бухта" data-type="auto">
-          <p class="element__name">Стеклянная бухта</p>
-          <img class="element__like" src="./images/like-disabled.svg" alt="В ожидании лайка" >
-        </div>
-        <div class="element">
+          <div class="element__namegroup">
+            <h3 class="element__name">Стеклянная бухта</h3>
+            <button class="element__like" type="button"></button>
+          </div>
+        </article>
+        <article class="element">
           <img class="element__image" src="./images/ruskeala.jpg" alt="Рускеала" title="Рускеала" data-type="auto">
-          <p class="element__name">Рускеала</p>
-          <img class="element__like" src="./images/like-disabled.svg" alt="В ожидании лайка" >
-        </div>
+          <div class="element__namegroup">
+            <h3 class="element__name">Рускеала</h3>
+            <button class="element__like" type="button"></button>
+          </div>
+        </article>
       </section>
     
     </main>
@@ -66,15 +78,13 @@
 
     <div class="popup">
       <div class="popup__container">
-        <h3 class="popup__title-edit-profile">Редактировать профиль</h3>
-        <form class="popup__form">
-          <input type="text" class="popup__admin-username" name="username" placeholder="Имя пользователя" required>
-          <div class="popup__form-line"></div>
-          <input type="text" class="popup__admin-profession" name="profession" placeholder="Профессия" required>
-          <div class="popup__form-line"></div>
+        <h3 class="title-form">Редактировать профиль</h3>
+        <form class="popup__form" name="form">
+          <input type="text" class="popup__input popup__input_user" name="user" placeholder="Имя пользователя" required>
+          <input type="text" class="popup__input popup__input_job" name="job" placeholder="Профессия" required>
         </form>
-        <button class="popup__submit-button">Сохранить</button>
-        <img class="popup__close-img" src="./images/close-form.svg">
+        <button class="popup__submit-button" type="submit">Сохранить</button>
+        <button class="popup__close-button" type="button"></button>
       </div>    
     </div>
 

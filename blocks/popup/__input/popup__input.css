@@ -1,9 +1,11 @@
-.popup__admin-username {
+.popup__input {
     width: 358px;
     height: 27px;
-    margin: 54px auto 0;
-    padding: 0;
-    border: 0;
+    margin: 0 auto 30px;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: solid 1px rgb(0, 0, 0, 0.2);
+    border-left: 0;
 
     font-style: normal;
     font-weight: 400;
@@ -12,8 +14,7 @@
 }
 
 @media screen and (max-width:768px) {
-    .popup__admin-username {
+    .popup__input {
         width: 238px;
-        margin: 75px auto 0;
     }
 }

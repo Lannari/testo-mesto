@@ -1,29 +1,48 @@
 let popup = document.querySelector('.popup'); //переменная попапа
-let usernameInput = document.querySelector('.popup__admin-username'); //переменная в инпуте имени
-let profInput = document.querySelector('.popup__admin-profession'); //переменная в инпуте профессии
-let profileName = document.querySelector('.profile__info-username'); //переменная в Имени профиля
-let profileProf = document.querySelector('.profile__info-profession'); //переменная в Профессии профиля
+let userInput = document.querySelector('.popup__input_user'); //переменная в инпуте имени
+let jobInput = document.querySelector('.popup__input_job'); //переменная в инпуте профессии
+let profileName = document.querySelector('.profile__user'); //переменная в Имени профиля
+let profileJob = document.querySelector('.profile__job'); //переменная в Профессии профиля
 let formElement = document.querySelector('.popup__form'); //переменная блока формы
+const profileEdit = document.querySelector('.profile__edit-button'); //кнопка открытия попапа
+const popupClose = document.querySelector('.popup__close-button'); //кнопка закрытия попапа
 
-const profileEdit = document.querySelector('.profile__edit'); //кнопка открытия попапа
-profileEdit.addEventListener('click', function() {
-  usernameInput.value = profileName.textContent;
-  profInput.value = profileProf.textContent;
-  popup.classList.add('popup_open');
-});
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
-const popupClose = document.querySelector('.popup__close-img'); //кнопка закрытия попапа
-popupClose.addEventListener('click', function() {
-  popup.classList.remove('popup_open');
-});
+  function openpopup () {
+    userInput.value = profileName.textContent;
+    jobInput.value = profileJob.textContent;
+    popup.classList.add('popup_opened');
+  }
 
-const saveform = document.querySelector('.popup__submit-button'); //кнопка сохранения профиля
+  function closepopup () {
+    popup.classList.remove('popup_opened');
+  }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+profileEdit.addEventListener('click', openpopup);
+
+popupClose.addEventListener('click', closepopup);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+function handleFormSubmit (evt) {
+  evt.preventDefault();
+  profileName.textContent = userInput.value;   
+  profileJob.textContent = jobInput.value;
+  popup.classList.remove('popup_opened');
+}
+
+formElement.addEventListener('submit', handleFormSubmit);
+
+/* const saveform = document.querySelector('.popup__submit-button'); //кнопка сохранения профиля
 saveform.addEventListener('click', function(evt) {
   evt.preventDefault();
   profileName.textContent = usernameInput.value;   
-  profileProf.textContent = profInput.value;
-  popup.classList.remove('popup_open');
+  profileJob.textContent = profInput.value;
+  popup.classList.remove('popup_opened');
 });
 
-formElement.addEventListener('submit', handleFormSubmit);
+formElement.addEventListener('submit', handleFormSubmit); */
 

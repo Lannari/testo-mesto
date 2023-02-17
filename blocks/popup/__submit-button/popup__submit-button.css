@@ -12,6 +12,8 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
+    transition-property: opacity;
+    transition-duration: 0.2s;
 }
 
 .popup__submit-button:hover {

@@ -7,7 +7,9 @@
     background-size: 10px;
     background-repeat: no-repeat;
     background-position: center;
-    margin-top: 17px;
+    margin-top: 15px;
+    transition-property: opacity;
+    transition-duration: 0.2s;
 }
 
 .profile__edit-button:hover {
@@ -16,7 +18,7 @@
 }
 
 @media screen and (max-width:768px) {
-    .profile__edit {
+    .profile__edit-button {
         width: 18px;
         height: 18px;
         background-size: 7.5px;

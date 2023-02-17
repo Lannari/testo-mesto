@@ -8,8 +8,17 @@
 
 @font-face {
     font-family: 'Inter';
+    src: url(Inter-Medium.woff2) format("woff2"),
+    url(Inter-Medium.woff) format("woff");
+    font-display: swap;
+    font-weight: 500;
+        }
+
+@font-face {
+    font-family: 'Inter';
     src: url(Inter-Black.woff2) format("woff2"),
     url(Inter-Black.woff) format("woff");
     font-display: swap;
     font-weight: 900;
     }
+

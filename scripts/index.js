@@ -1,6 +1,6 @@
 let popup = document.querySelector('.popup'); //переменная попапа
-let userInput = document.querySelector('.popup__input_user'); //переменная в инпуте имени
-let jobInput = document.querySelector('.popup__input_job'); //переменная в инпуте профессии
+let userInput = document.querySelector('.popup__input_type_user'); //переменная в инпуте имени
+let jobInput = document.querySelector('.popup__input_type_job'); //переменная в инпуте профессии
 let profileName = document.querySelector('.profile__user'); //переменная в Имени профиля
 let profileJob = document.querySelector('.profile__job'); //переменная в Профессии профиля
 let formElement = document.querySelector('.popup__form'); //переменная блока формы
@@ -31,12 +31,12 @@ function handleFormSubmit (evt) {
   evt.preventDefault();
   profileName.textContent = userInput.value;   
   profileJob.textContent = jobInput.value;
-  popup.classList.remove('popup_opened');
+  closepopup ();
 }
 
 formElement.addEventListener('submit', handleFormSubmit);
 
-/* const saveform = document.querySelector('.popup__submit-button'); //кнопка сохранения профиля
+/* const saveform = document.querySelector('.popup__submit-button'); //кнопка сохранения профиля // Ранний код
 saveform.addEventListener('click', function(evt) {
   evt.preventDefault();
   profileName.textContent = usernameInput.value;   

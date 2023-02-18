@@ -16,8 +16,8 @@
       <section class="profile">
         <img class="profile__avatar" src="./images/custo.png" alt="Аватар" data-type="auto">
         <div class="profile__info">
-          <h2 class="profile__user">Жак-Ив Кусто</h2>
-          <button class="profile__edit-button" type="button"></button>
+          <h1 class="profile__user">Жак-Ив Кусто</h1>
+          <button aria-label="Редактирование" class="profile__edit-button" type="button"></button>
           <p class="profile__job">Исследователь океана</p>
         </div>
         <button class="profile__add-button" type="button">
@@ -29,42 +29,42 @@
         <article class="element">
           <img class="element__image" src="./images/lake-elton.jpg" alt="Озеро Эльтон" title="Озеро Эльтон" data-type="auto">
           <div class="element__namegroup">
-            <h3 class="element__name">Озеро Эльтон</h3>
+            <h2 class="element__name">Озеро Эльтон</h2>
             <button class="element__like element__like_active" type="button"></button>
           </div>
         </article>
         <article class="element">
           <img class="element__image" src="./images/volcano-krenicin.jpg" alt="Вулкан Креницына" title="Вулкан Креницына" data-type="auto">
           <div class="element__namegroup">
-            <h3 class="element__name">Вулкан Креницына</h3>
+            <h2 class="element__name">Вулкан Креницына</h2>
             <button class="element__like" type="button"></button>
           </div>
         </article>
         <article class="element">
           <img class="element__image" src="./images/manpupuner.jpg" alt="Маньпупунёр" title="Маньпупунёр" data-type="auto">
           <div class="element__namegroup">
-            <h3 class="element__name">Маньпупунёр</h3>
+            <h2 class="element__name">Маньпупунёр</h2>
             <button class="element__like" type="button"></button>
           </div>
         </article>
         <article class="element">
           <img class="element__image" src="./images/deadсity.jpg" alt="Город Мёртвых" title="город Мёртвых" data-type="auto">
           <div class="element__namegroup">
-            <h3 class="element__name">Город Мёртвых</h3>
+            <h2 class="element__name">Город Мёртвых</h2>
             <button class="element__like" type="button"></button>
           </div>
         </article>
         <article class="element">
           <img class="element__image" src="./images/glassbay.jpg" alt="Стеклянная бухта" title="Стеклянная бухта" data-type="auto">
           <div class="element__namegroup">
-            <h3 class="element__name">Стеклянная бухта</h3>
+            <h2 class="element__name">Стеклянная бухта</h2>
             <button class="element__like" type="button"></button>
           </div>
         </article>
         <article class="element">
           <img class="element__image" src="./images/ruskeala.jpg" alt="Рускеала" title="Рускеала" data-type="auto">
           <div class="element__namegroup">
-            <h3 class="element__name">Рускеала</h3>
+            <h2 class="element__name">Рускеала</h2>
             <button class="element__like" type="button"></button>
           </div>
         </article>
@@ -79,9 +79,9 @@
     <div class="popup">
       <div class="popup__container">
         <h3 class="popup__title-form">Редактировать профиль</h3>
-        <form class="popup__form" name="form">
-          <input type="text" class="popup__input popup__input_user" name="user" placeholder="Имя пользователя" required>
-          <input type="text" class="popup__input popup__input_job" name="job" placeholder="Профессия" required>
+        <form class="popup__form" name="form-popup-user">
+          <input type="text" class="popup__input popup__input_type_user" name="user" placeholder="Имя пользователя" required>
+          <input type="text" class="popup__input popup__input_type_job" name="job" placeholder="Профессия" required>
           <button class="popup__submit-button" type="submit">Сохранить</button>
         </form>
         <button class="popup__close-button" type="button"></button>

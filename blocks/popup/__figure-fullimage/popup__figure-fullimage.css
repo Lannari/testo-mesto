@@ -1,0 +1,6 @@
+.popup__figure-fullimage {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin: 0;
+}

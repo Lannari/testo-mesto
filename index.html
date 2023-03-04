@@ -13,6 +13,7 @@
     </header> 
     
     <main class="content">
+      
       <section class="profile">
         <img class="profile__avatar" src="./images/custo.png" alt="Аватар" data-type="auto">
         <div class="profile__info">
@@ -20,9 +21,7 @@
           <button aria-label="Редактирование" class="profile__edit-button" type="button"></button>
           <p class="profile__job">Исследователь океана</p>
         </div>
-        <button class="profile__add-button" type="button">
-    
-        </button>
+        <button class="profile__add-button" type="button"></button>
       </section>
 
       <section class="elements">
@@ -36,7 +35,6 @@
             </div>
           </article>
         </template>
-
       </section>
     
     </main>
@@ -68,7 +66,17 @@
         <button class="popup__close-button close-button-mesto" type="button"></button>
       </div>    
     </div>
-
+    
+    <div class="popup popup_type_fullimage">
+      <div class="popup__container-fullimage">
+        <figure class="popup__figure-fullimage">
+          <img class="popup__fullimage" src="#" alt="#">
+          <figcaption class="popup__caption-fullimage"></figcaption>
+        </figure>
+        <button class="popup__close-button close-button-fullimage" type="button"></button>
+      </div>
+    </div>
+  
     <script src="./scripts/index.js"></script>
   </body>
 </html>

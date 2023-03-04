@@ -8,6 +8,7 @@
     align-self: center;
     transition-property: opacity;
     transition-duration: 0.2s;
+    
     visibility: visible;
     transition: 0.5s;
     opacity: 1;

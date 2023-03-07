@@ -43,7 +43,7 @@
       <p class="footer__copyright">&copy; 2023. Степан Рыбаков</p>
     </footer>
 
-    <div class="popup">
+    <div class="popup popup_type_profile">
       <div class="popup__container">
         <h3 class="popup__title-form">Редактировать профиль</h3>
         <form class="popup__form" name="form-popup-user">
@@ -51,11 +51,11 @@
           <input type="text" class="popup__input popup__input_type_job" name="job" placeholder="Профессия" required>
           <button class="popup__submit-button" type="submit">Сохранить</button>
         </form>
-        <button class="popup__close-button" type="button"></button>
+        <button class="popup__close-button close-button-profile" type="button"></button>
       </div>    
     </div>
 
-    <div class="popup popup-mesto">
+    <div class="popup popup_type_create-card">
       <div class="popup__container container-mesto">
         <h3 class="popup__title-form title-mesto">Новое место</h3>
         <form class="popup__form form-mesto" name="form-popup-mesto">
@@ -67,7 +67,7 @@
       </div>    
     </div>
     
-    <div class="popup popup_type_fullimage">
+    <div class="popup popup_type_full-image">
       <div class="popup__container-fullimage">
         <figure class="popup__figure-fullimage">
           <img class="popup__fullimage" src="#" alt="#">
@@ -76,7 +76,8 @@
         <button class="popup__close-button close-button-fullimage" type="button"></button>
       </div>
     </div>
-  
+    
+    <script src="./scripts/cards.js"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>

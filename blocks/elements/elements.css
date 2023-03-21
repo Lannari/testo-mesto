@@ -3,7 +3,8 @@
     margin-top: 51px;
     gap: 20px 17px;
     
-    grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+    grid-template-columns: repeat(auto-fit, 282px);
+    justify-content: space-evenly;
 }
 
 @media screen and (max-width:768px) {

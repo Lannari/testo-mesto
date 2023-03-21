@@ -24,7 +24,7 @@ const cardTemplate = document.querySelector('#card-template'); // перемен
 
 buttonOpenCreateCard.addEventListener('click', openCreateCard,);
 buttonCloseCreateCard.addEventListener('click', closeCreateCard);
-formCreateCard.addEventListener('submit', handleFormSubmitMesto);
+formCreateCard.addEventListener('submit', submitAddCardForm);
 
 ////////////////////////   ПЕРЕМЕННЫЕ ПОПАП ИМЕЙДЖ    ////////////////////////////////
 const popupTypeFullImage = document.querySelector('.popup_type_full-image') // переменная попапа-имейдж
@@ -37,9 +37,13 @@ buttonCloseFullImage.addEventListener('click', closeFullImage);
 ////////  БАЗОВЫЕ ФУНКЦИИ ОТКРЫТИЯ И ЗАКРЫТИЯ ПОПАПов  //////////////////////
 function openPopup (popup) {                      // общая функция Открыть попап
   popup.classList.add('popup_opened')
+  document.addEventListener('keydown', closePressEsc);  //добавление слушателя функции закрытия на ескейп
+  document.addEventListener('mousedown', closeClickOverlay);
 }
 function closePopup (popup) {                     // общая функция Закрыть попап
   popup.classList.remove('popup_opened')
+  document.removeEventListener('keydown', closePressEsc);  //удаление слушателя функции закрытия на ескейп
+  document.removeEventListener('mousedown', closeClickOverlay);
 }
 
 /////// ЗАКРЫТИЕ НА КЛАВИШУ ESC   ////////////
@@ -51,15 +55,14 @@ function closePressEsc(evt) {
   }
 }
 
-document.addEventListener('keydown', closePressEsc);    // обработчик слушателя закрытия по esc
-document.addEventListener('mousedown', (evt) => {       // обработчик слушателя закрытия при клике по пустому месту
+////// ЗАКРЫТИЕ ПО КЛИКУ ПО ПУСТОМУ МЕСТУ ///////////
+function closeClickOverlay(evt) {
   if (evt.target.classList.contains('popup_opened')) {
     closePopup(evt.target);
-  }  
-})
+  }
+}
 
-
-///////////  ФУНКЦИИ ОТКРЫТИЯ ПОПАП ПРОФИЛЬ  /////////////
+///////////  ФУНКЦИИ ОТКРЫТИЯ/ЗАКРЫТИЯ ПОПАП ПРОФИЛЬ  /////////////
 function openPopupProfile () {
   openPopup(popupProfile);
   userInput.value = profileName.textContent;     
@@ -68,32 +71,26 @@ function openPopupProfile () {
 function closePopupProfile () {
   closePopup(popupProfile);
 }
-///////////  ФУНКЦИИ ОТКРЫТИЯ ПОПАП КАРТОЧКА  /////////////
-function openCreateCard (evt) {
+
+
+////////////// ОТКРЫТИЕ/ЗАКРЫТИЕ ВТОРОГО ПОПАПА С ЗАБЛОКИРОВАННОЙ ПО УМОЛЧАНИЮ КНОПКОЙ СОХРАНИТЬ ///////////////////
+const submitFormButton = formCreateCard.querySelector('.popup__submit-button');
+
+function disableSubmitButton(submitFormButton, config) {    //функция деактивации кнопки по умолчанию у второго попапа
+  submitFormButton.classList.add(config.inactiveButtonClass);
+  submitFormButton.disabled = true;
+}
+
+function openCreateCard () {
   openPopup(popupCreateCard);
   formCreateCard.reset();
- 
+  disableSubmitButton(submitFormButton, validationConfig);
 }
 
 function closeCreateCard () {
   closePopup(popupCreateCard);
 }
 
-//////////////ТЕСТОВАЯ ЧУШЬ ///////////////////
-// const submitFormButton = document.querySelector('.popup__submit-button');
-
-// function disableSubmitButton(submitFormButton, config) {
-//   submitFormButton.classList.add(config.inactiveButtonClass);
-//   submitFormButton.disabled = true;
-// }
-
-// function openCreateCard () {
-//   openPopup(popupCreateCard);
-//   formCreateCard.reset();
-//   disableSubmitButton(submitFormButton, validationConfig);
-// }
-
-////////////////////////////////////////////////
 
 ////////////////// ОТПРАВКА ДАННЫХ ИЗ ПОЛЕЙ ВВОДА В ПРОФИЛЬ  /////////////////////////
 function handleFormSubmitUser (evt) { 
@@ -147,7 +144,7 @@ function handleDeleteButtonClick(evt) {
 }
 
 /////////////// СОХРАНЕНИЕ КАРТИНКИ И НАЗВАНИЯ ///////////////
-function handleFormSubmitMesto(evt) {
+function submitAddCardForm(evt) {
   evt.preventDefault()
   const link = linkCardInput.value
   const name = nameCardInput.value

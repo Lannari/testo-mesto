@@ -47,8 +47,14 @@
       <div class="popup__container">
         <h3 class="popup__title-form">Редактировать профиль</h3>
         <form class="popup__form" name="form-popup-user">
-          <input type="text" class="popup__input popup__input_type_user" name="user" placeholder="Имя пользователя" required>
-          <input type="text" class="popup__input popup__input_type_job" name="job" placeholder="Профессия" required>
+          <input type="text" class="popup__input popup__input_type_user" name="user" placeholder="Имя пользователя" 
+                 minlength="2" maxlength="40" required>
+          <span class="popup__input-error popup__input-error_type_user"></span>
+          
+          <input type="text" class="popup__input popup__input_type_job" name="job" placeholder="Профессия"
+                 minlength="2" maxlength="200" required>
+          <span class="popup__input-error popup__input-error_type_job"></span>
+          
           <button class="popup__submit-button" type="submit">Сохранить</button>
         </form>
         <button class="popup__close-button close-button-profile" type="button"></button>
@@ -59,8 +65,22 @@
       <div class="popup__container container-mesto">
         <h3 class="popup__title-form title-mesto">Новое место</h3>
         <form class="popup__form form-mesto" name="form-popup-mesto">
-          <input type="text" class="popup__input popup__input_type_mesto" name="mesto" placeholder="Название места" required>
-          <input type="text" class="popup__input popup__input_type_link" name="link" placeholder="Ссылка на картинку" required>
+          
+          <input type="text" 
+          class="popup__input popup__input_type_place" 
+          name="place" 
+          placeholder="Название места" 
+          minlength="2" maxlength="200" required>
+
+          <span 
+          class="popup__input-error popup__input-error_type_place"></span>
+
+          <input type="url" 
+          class="popup__input popup__input_type_link" 
+          name="link" 
+          placeholder="Ссылка на картинку" required>
+          <span class="popup__input-error popup__input-error_type_link"></span>
+          
           <button class="popup__submit-button submit-button-mesto" type="submit">Сохранить</button>
         </form>
         <button class="popup__close-button close-button-mesto" type="button"></button>
@@ -79,5 +99,6 @@
     
     <script src="./scripts/cards.js"></script>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>

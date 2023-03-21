@@ -47,3 +47,8 @@
 @import url(../blocks/popup/__figure-fullimage/popup__figure-fullimage.css);
 @import url(../blocks/popup/__fullimage/popup__fullimage.css);
 @import url(../blocks/popup/__caption-fullimage/popup__caption-fullimage.css);
+
+@import url(../blocks/popup/__input/popup__input_border_error.css);
+@import url(../blocks/popup/__input-error/popup__input-error.css);
+@import url(../blocks/popup/__input-error/popup__input-error_visible.css);
+@import url(../blocks/popup/__submit-button/popup__submit-button_inactive.css);

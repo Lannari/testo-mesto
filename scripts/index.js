@@ -12,17 +12,17 @@ buttonEditProfile.addEventListener('click', openPopupProfile);
 buttonClosePopupProfile.addEventListener('click', closePopupProfile);  
 formUser.addEventListener('submit', handleFormSubmitUser);
 
-//////////////////// ПЕРЕМЕННЫЕ КАРТОЧЕК МЕСТО  ////////////////////////////////
+//////////////////// ПЕРЕМЕННЫЕ КАРТОЧЕК  ////////////////////////////////
 const popupCreateCard = document.querySelector('.popup_type_create-card'); //переменная попап-место
 const formCreateCard = document.querySelector('.form-mesto')  // переменная формы Место
-const nameCardInput = popupCreateCard.querySelector('.popup__input_type_mesto'); //переменная в инпуте место
+const nameCardInput = popupCreateCard.querySelector('.popup__input_type_place'); //переменная в инпуте место
 const linkCardInput = popupCreateCard.querySelector('.popup__input_type_link'); //переменная в инпуте ссылка на картинку
 const buttonOpenCreateCard = document.querySelector('.profile__add-button'); //кнопка открытия место
 const buttonCloseCreateCard = popupCreateCard.querySelector('.close-button-mesto'); //кнопка закрытия место
 const cardsContainer = document.querySelector('.elements')  // переменная секции с местами
 const cardTemplate = document.querySelector('#card-template'); // переменная шаблона карточки
 
-buttonOpenCreateCard.addEventListener('click', openCreateCard);
+buttonOpenCreateCard.addEventListener('click', openCreateCard,);
 buttonCloseCreateCard.addEventListener('click', closeCreateCard);
 formCreateCard.addEventListener('submit', handleFormSubmitMesto);
 
@@ -42,30 +42,66 @@ function closePopup (popup) {                     // общая функция �
   popup.classList.remove('popup_opened')
 }
 
+/////// ЗАКРЫТИЕ НА КЛАВИШУ ESC   ////////////
+function closePressEsc(evt) {
+  if (evt.key === 'Escape') {
+    evt.target.blur();                          //  убрать выделение с кнопки
+    const popupElement = document.querySelector('.popup_opened');
+    closePopup(popupElement);
+  }
+}
+
+document.addEventListener('keydown', closePressEsc);    // обработчик слушателя закрытия по esc
+document.addEventListener('mousedown', (evt) => {       // обработчик слушателя закрытия при клике по пустому месту
+  if (evt.target.classList.contains('popup_opened')) {
+    closePopup(evt.target);
+  }  
+})
+
+
 ///////////  ФУНКЦИИ ОТКРЫТИЯ ПОПАП ПРОФИЛЬ  /////////////
 function openPopupProfile () {
   openPopup(popupProfile);
   userInput.value = profileName.textContent;     
-  jobInput.value = profileJob.textContent;  
+  jobInput.value = profileJob.textContent; 
 }
 function closePopupProfile () {
   closePopup(popupProfile);
 }
 ///////////  ФУНКЦИИ ОТКРЫТИЯ ПОПАП КАРТОЧКА  /////////////
-function openCreateCard () {
+function openCreateCard (evt) {
   openPopup(popupCreateCard);
   formCreateCard.reset();
+ 
 }
+
 function closeCreateCard () {
   closePopup(popupCreateCard);
 }
 
+//////////////ТЕСТОВАЯ ЧУШЬ ///////////////////
+// const submitFormButton = document.querySelector('.popup__submit-button');
+
+// function disableSubmitButton(submitFormButton, config) {
+//   submitFormButton.classList.add(config.inactiveButtonClass);
+//   submitFormButton.disabled = true;
+// }
+
+// function openCreateCard () {
+//   openPopup(popupCreateCard);
+//   formCreateCard.reset();
+//   disableSubmitButton(submitFormButton, validationConfig);
+// }
+
+////////////////////////////////////////////////
+
 ////////////////// ОТПРАВКА ДАННЫХ ИЗ ПОЛЕЙ ВВОДА В ПРОФИЛЬ  /////////////////////////
 function handleFormSubmitUser (evt) { 
+  console.log(evt)
   evt.preventDefault();                            
   profileName.textContent = userInput.value;       
   profileJob.textContent = jobInput.value;         
-  closePopupProfile ();                                   
+  closePopupProfile ();                                  
 }
 
 ///////////// СЧИТЫВАНИЕ МАССИВА И РАСПРЕДЕЛЕНИЕ КАРТОЧКЕ В СЕКЦИИ ELEMENTS ////////////////
@@ -84,7 +120,7 @@ function createCard(card) {
   buttonDeleteCard.addEventListener('click', handleDeleteButtonClick)    
   
   const buttonLikeCard = newCard.querySelector('.element__like')    // постановка лайка на карточку
-  buttonLikeCard.addEventListener('click', handleLikeClick);
+  buttonLikeCard.addEventListener('click',  handleLikeClick);
 
   cardLink.addEventListener('click', () =>    //открытие полной картинки при клике на карточку
     handleFullImageClick(card)
@@ -92,6 +128,7 @@ function createCard(card) {
 
   return newCard;
 };
+
 
 //////////  СОЗДАНИЕ СЕКЦИИ КАРТОЧЕК ИЗ МАССИВА  ////////////
 initialCards.forEach(function (card) {     
